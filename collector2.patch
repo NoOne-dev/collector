@@ -1,0 +1,11 @@
+--- urls.py
++++ urls.py
+@@ -59,7 +59,7 @@
+ 
+     # Admin
+     url(r'^admin/', admin_site.urls),
+-
++	url(r'^api/collector/', include('collector.urls')),
+ 
+ ]
+ 
