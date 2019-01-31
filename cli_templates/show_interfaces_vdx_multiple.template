@@ -1,0 +1,41 @@
+Value interface ([a-zA-Z0-9\/\s]+)
+Value Required intstate (up|down|disabled)
+Value protostate (up|down)
+Value stprootguard (enabled|disabled|Enabled|Disabled)
+Value stpbpduguard (enabled|disabled|Enabled|Disabled)
+Value hardwaretype ([a-zA-Z0-9\s]+)
+Value description ([a-zA-Z0-9\.\ \(\)\#\/\-]+)
+Value mac ([0-9a-f\.]+)
+Value currentmac ([0-9a-f\.]+)
+Value confspeed ([0-9a-zA-Z]+)
+Value confduplex ([0-9a-zA-Z]+)
+Value actualspeed ([0-9a-zA-Z]+)
+Value actualduplex ([0-9a-zA-Z]+)
+Value untaggedvlan (\d+)
+Value numtaggedvlans (\d+)
+Value stpconfstate (ON|OFF)
+Value priority ([a-zA-Z0-9]+)
+Value flowcontrolconfigstate (enabled|disabled)
+Value flowcontrolopstate (enabled|disabled)
+Value flowcontrolnegconfig (enabled|disabled)
+Value mirrorstate (enabled|disabled)
+Value monitorstate (enabled|disabled)
+Value activelagports ([0-9\/\-\,]+)
+Value activelagrole (primary|secondary)
+Value activelagprimaryport ([0-9\/]+)
+Value conflagports ([0-9\/\-\,]+)
+Value conflagrole (primary|secondary)
+Value conflagprimaryport ([0-9\/]+)
+Value portname ([a-zA-Z0-9\.\ \"\(\)\#\/\-]+)
+Value l2mtubytes (\d+)
+
+Start
+  ^\s+TenGig -> Continue.Record
+  ^(Gig|TenGig|FortyGig|\s+TenGig) -> Continue.Record
+  ^\s*${interface} is ${intstate}, line protocol is ${protostate} \(([a-zA-Z0-9\.\ \(\)\#\/\-]+)\) -> Continue
+  ^\s*Hardware is ${hardwaretype}, address is ${mac} -> Continue
+  ^\s+Current address is ${currentmac} -> Continue
+  ^\s*Description: ${description} -> Continue
+  ^\s*MTU ${l2mtubytes} bytes -> Continue
+  ^\s*LineSpeed Actual     : ${actualspeed} -> Continue
+  ^\s*LineSpeed Configured : ${confspeed}, Duplex: ${confduplex} -> Continue
