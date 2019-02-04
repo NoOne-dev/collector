@@ -1,7 +1,7 @@
 from dcim.models import Device, Interface, InventoryItem, Manufacturer, Platform, DeviceRole,Cable
 from virtualization.models import Cluster, VirtualMachine, ClusterType
 from ipam.models import IPAddress
-from textfsm import clitable
+import clitable
 from netaddr import IPNetwork
 from dcim.constants import *
 from collector.settings import *
