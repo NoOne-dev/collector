@@ -1,11 +1,11 @@
-Value interface ([a-zA-Z0-9\/\s]+)
-Value Required intstate (up|down|disabled)
+Value Required NAME ([a-zA-Z0-9\/\s]+)
+Value ADM_STATE (up|down|disabled)
 Value protostate (up|down)
 Value stprootguard (enabled|disabled|Enabled|Disabled)
 Value stpbpduguard (enabled|disabled|Enabled|Disabled)
-Value hardwaretype ([a-zA-Z0-9\s]+)
-Value mac ([0-9a-f\.]+)
-Value bia ([0-9a-f\.]+)
+Value HARDWARE_TYPE ([a-zA-Z0-9\s]+)
+Value MAC ([0-9a-f\.]+)
+Value BIA ([0-9a-f\.]+)
 Value confspeed ([0-9a-zA-Z]+)
 Value confduplex ([0-9a-zA-Z]+)
 Value actualspeed ([0-9a-zA-Z]+)
@@ -28,7 +28,7 @@ Value conflagports ([0-9\/\-\,]+)
 Value conflagrole (primary|secondary)
 Value conflagprimaryport ([0-9\/]+)
 Value portname ([a-zA-Z0-9\.\ \"\(\)\#\/\-]+)
-Value l2mtubytes (\d+)
+Value MTU (\d+)
 Value loadinterval (\d+)
 Value inputbitssec (\d+)
 Value inputpacketssec (\d+)
@@ -78,8 +78,8 @@ Value queue7dropped (\d+)
 Start
   ^\s+10Gig -> Continue.Record
   ^(Gig|10Gig|40Gig|\s+10Gig) -> Continue.Record
-  ^\s*${interface} is ${intstate}, line protocol is ${protostate} -> Continue
-  ^\s+Hardware is ${hardwaretype}, address is ${mac} \(bia ${bia}\) -> Continue
+  ^\s*${NAME} is ${ADM_STATE}, line protocol is ${protostate} -> Continue
+  ^\s+Hardware is ${HARDWARE_TYPE}, address is ${MAC} \(bia ${BIA}\) -> Continue
   ^\s+BPDU guard is ${stpbpduguard}, ROOT protect is ${stprootguard} -> Continue
   ^\s+Configured speed ${confspeed}, actual ${actualspeed}, configured duplex ${confduplex}, actual ${actualduplex} -> Continue
   ^\s+Member of L2 VLAN ID ${untaggedvlan}, port is ${l2portmode}, port state is ${l2portstate} -> Continue
@@ -95,8 +95,8 @@ Start
   ^\s+Member of active trunk ports ${activelagports}, ${activelagrole} port -> Continue
   ^\s+Member of configured trunk ports ${conflagports}, ${conflagrole} port -> Continue
   ^\s+Port name is ${portname} -> Continue
-  ^\s+MTU ${l2mtubytes} bytes -> Continue
-  ^\s+IP MTU ${l2mtubytes} bytes -> Continue
+  ^\s+MTU ${MTU} bytes -> Continue
+  ^\s+IP MTU ${MTU} bytes -> Continue
   ^\s+${loadinterval} second input rate: ${inputbitssec} bits/sec, ${inputpacketssec} packets/sec, ${inputpercentutilization}% utilization -> Continue
   ^\s+(\d+) second output rate: ${outputbitssec} bits/sec, ${outputpacketssec} packets/sec, ${outputpercentutilization}% utilization -> Continue
   ^\s+${inputpacketstotal} packets input, ${inputbytestotal} bytes, ${inputnobuffers} no buffer -> Continue
