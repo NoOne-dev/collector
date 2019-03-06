@@ -142,7 +142,7 @@ def _connect_interface(interface):
     iface_descr = interface.description
 
     if desc_regex.match(iface_descr):
-        asset_tag, server_port = iface_descr.split('|')
+        asset_tag, server_port = iface_descr.split(' - ')
 
         server = Device.objects.filter(asset_tag = asset_tag)
         if server:
