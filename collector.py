@@ -386,6 +386,7 @@ def sync_interfaces(device, interfaces):
                     if iface.ip_addresses.filter(address=address):
                         continue
                     addr.address = IPNetwork(address)
+                    addr.description = device.name
                     addr.save()
                 except:
                     logger.warning("Cannot set address {} on interface".format(address))
