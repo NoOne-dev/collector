@@ -344,13 +344,14 @@ def sync_interfaces(device, interfaces):
 
         logger.info("Will be save next parameters: Name:{name}, MAC: {mac}, MTU: {mtu}, Descr: {description}".format(
             name=name, mac=mac, mtu=mtu, description=description))
+        
         if iface.description:
             iface.description = iface.description
+        elif description:
+            iface.description = description
         else:
-            if description:
-                iface.description = description
-            else:
-                iface.description = ''
+            iface.description = ''
+        
         iface.mac_address = mac
 
         # MTU should be less 32767
