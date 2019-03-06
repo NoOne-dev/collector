@@ -45,6 +45,13 @@ INSTALLED_APPS = (
     # Collector is here
     url(r'^api/collector/', include('collector.urls')),
 ```
+* Create a **/var/log/netbox/netbox.log** file:
+
+```
+touch /var/log/netbox/netbox.log
+chown nginx:nginx /var/log/netbox/netbox.log
+```
+Replace "nginx" with your webserver process user, which can be found in the netbox/gunicorn_config.py file next to 'user'
 
 ## API Format
 
