@@ -370,10 +370,10 @@ def sync_interfaces(device, interfaces):
             count += 1
             logger.info("Interface {} was succesfully saved".format(name, device.name))
 
-        try:
-            _connect_interface(iface)
-        except:
-            logger.error("Problem with connection function")
+#        try:
+#            _connect_interface(iface)
+#        except:
+#            logger.error("Problem with connection function")
 
         # IP syncing
         if len(ips) > 0:
