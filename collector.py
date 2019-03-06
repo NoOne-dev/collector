@@ -371,8 +371,8 @@ def sync_interfaces(device, interfaces):
 
         try:
             _connect_interface(iface)
-        except:
-            logger.error("Problem with connection function")
+        except Exception as e:
+            logger.error("Problem with connection function, error is {}".format(e))
 
         # IP syncing
         if len(ips) > 0:
