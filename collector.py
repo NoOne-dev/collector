@@ -347,7 +347,7 @@ def sync_interfaces(device, interfaces):
         if description:
             iface.description = description
         else:
-            iface.description = ''
+        #    iface.description = ''
         iface.mac_address = mac
 
         # MTU should be less 32767
