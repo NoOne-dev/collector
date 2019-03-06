@@ -6,6 +6,10 @@ import json
 import sys
 import os
 
+# bypass ssl errors
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 # python 2 or 3 compatability(tested with 2.6 and 3.6)
 try:
     from urllib2 import urlopen, Request, URLError, HTTPError
@@ -23,10 +27,16 @@ def send_request(hostname, command, result):
     headers = {"Content-Type": "application/json",
                 "Authorization": "Token %s" % TOKEN}
 
-    sendData = {"Hostname": hostname,
-                "Command": command,
-                "Data": result
-                }
+    sendData = {'action': 'sync',
+                            'data': [
+                                {'hostname': hostname, 'command': command, 'data': result}
+                            ]}
+
+#    sendData = {"Hostname": hostname,
+#                "Command": command,
+#                "Data": result
+#                }
+
     
     url = Request(URL, data=json.dumps(sendData).encode('utf8'),  headers=headers) #, method='POST')
     try:
