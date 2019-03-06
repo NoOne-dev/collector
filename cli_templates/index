@@ -7,3 +7,4 @@ virsh_domstats.template,(.*), (.*), virsh_domstats, sync_vms, "Linux 'virsh doms
 cisco-nxos_show_interfaces.template,(.*), Cisco(.*), sh int nx, sync_interfaces, "Cisco NXOS 'sh[ow] in[terfaces]' command. Syncing network interface; using decsription for connect interfaces"
 cisco_show_interfaces.template,(.*), Cisco(.*), sh int, sync_interfaces, "Cisco IOS 'sh[ow] in[terfaces]' command. Syncing network interface; using description for connect interfaces"
 show_interfaces_vdx_multiple.template,(.*), Brocade(.*), sh int vdx, sync_interfaces, "Brocade VDX 'sh[ow] in[terfaces]' command. Syncing network interface; using description for connect interfaces"
+show_interfaces_icx_multiple.template,(.*), Brocade(.*), sh int icx, sync_interfaces, "Brocade ICX 'sh[ow] in[terfaces]' command. Syncing network interface; using description for connect interfaces"
