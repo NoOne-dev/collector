@@ -372,7 +372,7 @@ def sync_interfaces(device, interfaces):
 
         try:
             _connect_interface(iface)
-        except Exception as e:
+        except:
             logger.error("Problem with connection function, error is {}".format(e))
 
         # IP syncing
