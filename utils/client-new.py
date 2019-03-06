@@ -8,6 +8,10 @@ from pprint import pprint
 import json
 import sys
 
+# bypass ssl errors
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 # python 2 or 3 comparability(tested with 2.6 and 3.6)
 try:
     from urllib2 import urlopen, Request, URLError, HTTPError, HTTPErrorProcessor, build_opener, quote
