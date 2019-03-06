@@ -140,7 +140,7 @@ def _connect_interface(interface):
     desc_regex = re.compile(desc_regex)
 
     iface_descr = interface.description
-
+    logger.info("Description reported as {}".format(iface_descr))
     if desc_regex.match(iface_descr):
         asset_tag, server_port = iface_descr.split('|')
 
